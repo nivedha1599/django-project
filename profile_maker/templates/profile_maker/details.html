@@ -1,0 +1,17 @@
+
+{% extends 'profile_maker/create.html' %}
+{% load static %}
+{% block replace %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<CENTER>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Image/file uploder<br>Hello {{ user_pr.fname }}</h1>
+  <p style = 'border: 5px lightgreen solid;'>Successfully Uploaded<br>Process Completed</p>
+  <hr class="my-4">
+  <img src="{{ user_pr.display_picture.url }}" class="image_responsive" height="100px" width="100px">
+  <p>
+    {{ user_pr.display_picture.url }}<BR>
+   You have learned some awesome technologies like {{ user_pr.technologies }}</p>
+</div>
+</CENTER>
+{% endblock %}

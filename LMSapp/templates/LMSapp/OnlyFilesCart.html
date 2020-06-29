@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FileResults</title>
+</head>
+<body>
+<h1>FilesCart</h1>
+ <form action="checkout" method="post">
+        {% if pdf %}
+        <h1>Pdf</h1><br>
+        {% for key, value in pdf.items %}
+                {% csrf_token %}
+                <input type="checkbox" name="pdfs" value={{ key }}>
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+
+        {% if slide %}
+        <h1>Slides </h1><br>
+        {% for key, value in slide.items %}
+                {% csrf_token %}
+                <input type="checkbox" name="slides" value={{ key }}>
+        <a href={{ value.0 }}>
+            <img src={{ value.1 }}><br>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if books %}
+        <h1>Books</h1><br>
+        {% for key, value in books.items %}
+                {% csrf_token %}
+                <input type="checkbox" name="books" value={{ key }}>
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+     <input type="submit">
+ </form>
+</body>
+</html>

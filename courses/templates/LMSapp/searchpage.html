@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SearchPage</title>
+</head>
+    <body>
+        <h1>SEARCH PAGE</h1>
+        <button onclick="location.href='{% url 'addcart' %}'" href="cart.html">
+            Add to cart
+        </button>
+        {% if text %}
+        <h1>Text</h1>
+        <a onclick="location.href='{% url 'empty' %}'" href="empty.html">Articles</a>
+        {% endif %}
+
+        {% if articles %}
+        <h1>Articles</h1><br>
+        {% for key, value in articles.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        <!--        {% if text %}-->
+<!--        <h1>INTRODUCTION</h1><br>-->
+<!--        {% for key, value in text.items %}-->
+<!--        {% if "edu_cba" in key %}-->
+<!--        {{ value }}<br>-->
+<!--&lt;!&ndash;        <a href={{ value }}>For More Info click here</a><br>&ndash;&gt;-->
+<!--        {% endif %}-->
+<!--        {% endfor %}-->
+<!--        {% endif %}-->
+        <br>
+        <br>
+        <h1>VIDEOS</h1>
+        {% if b_videos %}
+        <h1>Beginner videos</h1>
+        {% for key, value in b_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+        {% if c_videos %}
+        <h1>Comparison videos</h1>
+        {% for key, value in c_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+        {% if d_videos %}
+        <h1>How To videos</h1>
+        {% for key, value in d_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+
+        {% if a_videos %}
+        <h1>Advanced videos</h1>
+        {% for key, value in a_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+        {% if o_videos %}
+        <h1>Related videos</h1>
+        {% for key, value in o_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+<!--        <h1>Comparison videos</h1>-->
+<!--        {% for key, value in videos.items %}-->
+<!--        {% for ck in c_keywords %}-->
+<!--        {% if ck.lower in key.lower %}-->
+<!--        {% with name="https://www.youtube.com/embed/"|add:value %}-->
+<!--        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>-->
+<!--        {% endwith %}-->
+<!--        <h1>{{ key }}</h1><br>-->
+<!--        {% endif %}-->
+<!--        {% endfor %}-->
+<!--        {% endfor %}-->
+<!--        <h1>Demonstration videos</h1>-->
+<!--        {% for key, value in videos.items %}-->
+<!--        {% for dk in d_keywords %}-->
+<!--        {% if dk.lower in key.lower %}-->
+<!--        {% with name="https://www.youtube.com/embed/"|add:value %}-->
+<!--        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>-->
+<!--        {% endwith %}-->
+<!--        <h1>{{ key }}</h1><br>-->
+<!--        {% endif %}-->
+<!--        {% endfor %}-->
+<!--        {% endfor %}-->
+<!--        <h1>Project videos</h1>-->
+<!--        {% for key, value in videos.items %}-->
+<!--        {% for pk in p_keywords %}-->
+<!--        {% if pk.lower in key.lower %}-->
+<!--        {% with name="https://www.youtube.com/embed/"|add:value %}-->
+<!--        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>-->
+<!--        {% endwith %}-->
+<!--        <h1>{{ key }}</h1><br>-->
+<!--        {% endif %}-->
+<!--        {% endfor %}-->
+<!--        {% endfor %}-->
+<!--        <h1>Advanced videos</h1>-->
+<!--        {% for key, value in videos.items %}-->
+<!--        {% for ak in a_keywords %}-->
+<!--        {% if ak.lower in key.lower %}-->
+<!--        {% with name="https://www.youtube.com/embed/"|add:value %}-->
+<!--        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>-->
+<!--        {% endwith %}-->
+<!--        <h1>{{ key }}</h1><br>-->
+<!--        {% endif %}-->
+<!--        {% endfor %}-->
+<!--        {% endfor %}-->
+        {% if books %}
+        <h1>Books</h1><br>
+        {% for key, value in books.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if slide %}
+        <h1>Slides </h1><br>
+        {% for key, value in slide.items %}
+        <a href={{ value.0 }}>
+            <img src={{ value.1 }}><br>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if geeks %}
+        <h1>geeks</h1>
+        {% for key, value in geeks.items %}
+        <a href={{ key }}>
+            <img src={{ value.0 }}><br>
+            {{ value.1 }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if pdf %}
+        <h1>Pdf</h1><br>
+        {% for key, value in pdf.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+         {% if tutorials %}
+        <h1>tutorials</h1><br>
+        {% for key, value in tutorials.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if blogs %}
+        <h1>blogs</h1><br>
+        {% for key, value in blogs.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if codes %}
+        <h1>Codes</h1><br>
+        {% for key, value in codes.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if quiz %}
+        <h1>coding games</h1><br>
+        {% for key, value in quiz.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if study_materials %}
+        <h1>Study Materials</h1><br>
+        {% for key, value in study_materials.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+<!--        {% if study_materials %}-->
+<!--        <h1>Study Materials</h1><br>-->
+<!--        {% for key, value in study_materials.items %}-->
+<!--        <form method="post">-->
+<!--            <input value={{ value }}>-->
+<!--            <input type="submit" name='url_name' value={{ key }}>-->
+<!--&lt;!&ndash;        <a onclick="location.href='{% url 'empty' %}'" href="empty.html">&ndash;&gt;-->
+<!--&lt;!&ndash;            <data value={{ value }} name="url_value"></data>>&ndash;&gt;-->
+<!--&lt;!&ndash;            {{ key }}<br>&ndash;&gt;-->
+<!--&lt;!&ndash;        </a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button></button>&ndash;&gt;-->
+<!--        </form>-->
+<!--        {% endfor %}-->
+<!--        {% endif %}-->
+
+    </body>
+
+</html>

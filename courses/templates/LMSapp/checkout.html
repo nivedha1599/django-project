@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkout</title>
+</head>
+<body>
+<h1>Checkout Page</h1>
+<!--{% if checks %}-->
+<!--{% for li in checks %}-->
+<!--<a href={{ li }}>{{ li }}</a><br>-->
+<!--{% endfor %}-->
+<!--{% endif %}-->
+        {% if checkout_videos %}
+        <h1>videos</h1>
+        {% for key, value in checkout_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+
+        {% if checkout_slide %}
+        <h1>Slides </h1><br>
+        {% for key, value in checkout_slide.items %}
+        <a href={{ value.0 }}>
+            <img src={{ value.1 }}><br>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if checkout %}
+        <h1>Checkout list</h1><br>
+        {% for key, value in checkout.items %}
+        <a href={{ value }}>
+            {{ key }}<br>
+        </a>
+        {% endfor %}
+        {% endif %}
+</body>
+</html>

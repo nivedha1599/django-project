@@ -1,0 +1,49 @@
+
+
+
+{% load embed_video_tags %}
+{% video item.url "small" %}
+
+
+Common page for rendering the output
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CommonPage</title>
+</head>
+<body>
+
+<h1>This is Common page</h1>
+{% if Links %}
+ <h1>videos</h1>
+{% for link in Links %}
+        {% if 'PL' in link.link_url %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:link.link_url %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:link.link_url %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+        <h1>{{ link.title }}</h1><br>
+{% endfor %}
+{% endif %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

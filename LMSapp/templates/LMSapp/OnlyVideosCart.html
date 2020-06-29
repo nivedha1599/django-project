@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VideoResults</title>
+</head>
+<body>
+ <form action="checkout" method="post">
+     <h1>VIDEOS</h1>
+        {% if b_videos %}
+        <h1>Beginner videos</h1>
+        {% for key, value in b_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+                {% csrf_token %}
+                <input type="checkbox" name="videos" value={{ key }}>
+        <h1>{{ key }}</h1><br>
+
+        {% endfor %}
+        {% endif %}
+
+        {% if c_videos %}
+        <h1>Comparison videos</h1>
+        {% for key, value in c_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+                {% csrf_token %}
+                <input type="checkbox" name="videos" value={{ key }}>
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+        {% if d_videos %}
+        <h1>How To videos</h1>
+        {% for key, value in d_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+                {% csrf_token %}
+                <input type="checkbox" name="videos" value={{ key }}>
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+
+        {% if a_videos %}
+        <h1>Advanced videos</h1>
+        {% for key, value in a_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+                {% csrf_token %}
+                <input type="checkbox" name="videos" value={{ key }}>
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+        {% if o_videos %}
+        <h1>Related videos</h1>
+        {% for key, value in o_videos.items %}
+        {% if 'PL' in value %}
+        {% with name="https://www.youtube.com/embed/videoseries?list="|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% else %}
+        {% with name="https://www.youtube.com/embed/"|add:value %}
+        <iframe width="560" height="315" src={{ name }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+        {% endwith %}
+        {% endif %}
+                {% csrf_token %}
+                <input type="checkbox" name="videos" value={{ key }}>
+        <h1>{{ key }}</h1><br>
+        {% endfor %}
+        {% endif %}
+    <input type="submit">
+ </form>
+</body>
+</html>
